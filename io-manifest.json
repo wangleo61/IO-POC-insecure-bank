@@ -1,6 +1,6 @@
 {
    "application": {
-      "projectName": "IO-DEMO-insecure-bank"
+      "projectName": "insecure-bank"
    },
    "environment": {
       "scm": "<<SCM_TYPE>>",
