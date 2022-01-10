@@ -1,6 +1,6 @@
 {
    "application": {
-      "projectName": "insecure-bank"
+      "projectName": "IO-POC-insecure-bank"
    },
    "environment": {
       "scm": "<<SCM_TYPE>>",
