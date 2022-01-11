@@ -27,7 +27,7 @@ pipeline {
           echo "CodeDx Project ID = $CODEDX_PROJECT_ID"
         '''
         script {
-          env.CODEDX_PROJECT_ID = sh(getProjectID.sh --url=${CODEDX_SERVER_URL} --apikey=${CODEDX_TOKEN} --project=${IO_POC_PROJECT_NAME})
+          env.CODEDX_PROJECT_ID = sh(script:'getProjectID.sh --url=${CODEDX_SERVER_URL} --apikey=${CODEDX_TOKEN} --project=${IO_POC_PROJECT_NAME}', returnStdout: true).trim()
         }
       }
     }
