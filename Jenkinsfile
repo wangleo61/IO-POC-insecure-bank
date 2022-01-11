@@ -9,7 +9,6 @@ pipeline {
     IO_ACCESS_TOKEN = credentials('IO-AUTH-TOKEN')
     GTIHUB_ACCESS_TOKEN = credentials('Github-AuthToken')
     CODEDX_ACCESS_TOKEN = credentials('CODEDX_API_KEY')
-    CODEDX_PROJECT_ID = 2
     IS_SAST_ENABLED = "false"
     IS_SCA_ENABLED = "false"
     IS_DAST_ENABLED = "false"
@@ -28,6 +27,9 @@ pipeline {
       steps {
         echo "Getting IO Prescription"
         sh '''
+          echo "Getting CodeDx Project ID"
+          export CODEDX_PROJECT_ID = $(curl -s -X 'GET' "${CODEDX_SERVER_URL}/api/projects" -H 'accept: application/json' -H "API-Key: ${CODEDX_ACCESS_TOKEN}" |jq ".projects[] | select(.name==\"${IO_POC_PROJECT_NAME}\").id")
+          echo "CodeDx Project ID = $CODEDX_PROJECT_ID"
           rm -fr prescription.sh
           wget "https://raw.githubusercontent.com/synopsys-sig/io-artifacts/${WORKFLOW_CLIENT_VERSION}/prescription.sh"
           sed -i -e 's/\r$//' prescription.sh
