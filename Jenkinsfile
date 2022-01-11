@@ -29,6 +29,7 @@ pipeline {
         sh '''
           echo "Getting CodeDx Project ID"
           echo $(curl -s -X 'GET' "${CODEDX_SERVER_URL}/api/projects" -H 'accept: application/json' -H "API-Key: ${CODEDX_ACCESS_TOKEN}") > codedx_data_tmp.json
+          cat codedx_data_tmp.json
           echo $(jq -r ".projects[] | select(.name==[\"IO-POC-insecure-bank\"]).id" codedx_data_tmp.json)
           # export CODEDX_PROJECT_ID = $(curl -s -X 'GET' "${CODEDX_SERVER_URL}/api/projects" -H 'accept: application/json' -H "API-Key: ${CODEDX_ACCESS_TOKEN}" |jq ".projects[] | select(.name==\"\"${IO_POC_PROJECT_NAME}\"\").id")
           echo "CodeDx Project ID = $CODEDX_PROJECT_ID"
