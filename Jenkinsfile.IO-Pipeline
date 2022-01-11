@@ -7,6 +7,7 @@ pipeline {
     POLARIS_ACCESS_TOKEN = credentials('polaris-token')
     BLACKDUCK_ACCESS_TOKEN = credentials('BlackDuck-AuthToken')
     IO_ACCESS_TOKEN = credentials('IO-AUTH-TOKEN')
+    GITHUB_USERNAME = "sigiodemo"
     GTIHUB_ACCESS_TOKEN = credentials('Github-AuthToken')
     CODEDX_ACCESS_TOKEN = credentials('CODEDX_API_KEY')
     CODEDX_PROJECT_ID = 2
@@ -42,10 +43,10 @@ pipeline {
           --workflow.url="${WORKFLOW_URL}" \
           --workflow.version="${WORKFLOW_CLIENT_VERSION}" \
           --scm.type="github" \
-          --scm.owner="sigiodemo" \
+          --scm.owner="${GTIHUB_USERNAME}" \
           --scm.repo.name="${IO_POC_PROJECT_NAME}" \
           --scm.branch.name="main" \
-          --github.username="sigiodemo" \
+          --github.username="${GTIHUB_USERNAME}" \
           --github.token="${GTIHUB_ACCESS_TOKEN}" \
           --polaris.project.name="${IO_POC_PROJECT_NAME}" \
           --polaris.url="${POLARIS_SERVER_URL}" \
