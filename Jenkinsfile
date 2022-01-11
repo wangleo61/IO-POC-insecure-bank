@@ -23,11 +23,11 @@ pipeline {
         sh '''
           wget -q https://raw.githubusercontent.com/jones6951/io-scripts/main/getProjectID.sh
           chmod +x getProjectID.sh
-          CODEDX_PROJECT_ID=$(/tmp/getProjectID.sh --url=${CODEDX_SERVER_URL} --apikey=${CODEDX_TOKEN} --project=${IO_POC_PROJECT_NAME})
+          CODEDX_PROJECT_ID=$(getProjectID.sh --url=${CODEDX_SERVER_URL} --apikey=${CODEDX_TOKEN} --project=${IO_POC_PROJECT_NAME})
           echo "CodeDx Project ID = $CODEDX_PROJECT_ID"
         '''
         script {
-          env.CODEDX_PROJECT_ID=$(/tmp/getProjectID.sh --url=${CODEDX_SERVER_URL} --apikey=${CODEDX_TOKEN} --project=${IO_POC_PROJECT_NAME})
+          env.CODEDX_PROJECT_ID = sh(getProjectID.sh --url=${CODEDX_SERVER_URL} --apikey=${CODEDX_TOKEN} --project=${IO_POC_PROJECT_NAME})
         }
       }
     }
