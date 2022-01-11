@@ -28,7 +28,7 @@ pipeline {
         echo "Getting IO Prescription"
         sh '''
           echo "Getting CodeDx Project ID"
-          echo $(curl -s -X 'GET' "${CODEDX_SERVER_URL}/api/projects" -H 'accept: application/json' -H "API-Key: ${CODEDX_ACCESS_TOKEN}"}
+          echo $(curl -s -X 'GET' "${CODEDX_SERVER_URL}/api/projects" -H 'accept: application/json' -H "API-Key: ${CODEDX_ACCESS_TOKEN}")
           # export CODEDX_PROJECT_ID = $(curl -s -X 'GET' "${CODEDX_SERVER_URL}/api/projects" -H 'accept: application/json' -H "API-Key: ${CODEDX_ACCESS_TOKEN}" |jq ".projects[] | select(.name==\"\"${IO_POC_PROJECT_NAME}\"\").id")
           echo "CodeDx Project ID = $CODEDX_PROJECT_ID"
           rm -fr prescription.sh
