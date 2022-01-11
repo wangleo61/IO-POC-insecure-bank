@@ -17,6 +17,7 @@ pipeline {
     IS_PEN_TESTING_ENABLED = "false"
   }
 
+  stages {
     stage('IO Prescription') {
       steps {
         echo "Getting IO Prescription"
