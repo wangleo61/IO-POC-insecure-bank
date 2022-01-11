@@ -17,12 +17,6 @@ pipeline {
     IS_PEN_TESTING_ENABLED = "false"
   }
 
-  stages {
-    stage('Build') {
-      steps {
-        sh 'mvn -e clean package -DskipTests'
-      }
-    }
     stage('IO Prescription') {
       steps {
         echo "Getting IO Prescription"
