@@ -27,7 +27,7 @@ pipeline {
           cat codedx_data_tmp.json
           # echo $(jq -r ".projects[] | select(.name==[\"IO-POC-insecure-bank\"]).id" codedx_data_tmp.json)
           echo $(jq --arg v [\"${IO_POC_PROJECT_NAME}\"] '.projects[] | select(.name==[$v]).id' codedx_data_tmp.json)
-          echo $(jq --arg v ${IO_POC_PROJECT_NAME} \'.projects[] | select(.name==[\"$v\"]).id\' codedx_data_tmp.json)
+          echo $(jq --arg v "BS" \'.projects[] | select(.name==$v).id\' codedx_data_tmp.json)
           # export CODEDX_PROJECT_ID = $(curl -s -X 'GET' "${CODEDX_SERVER_URL}/api/projects" -H 'accept: application/json' -H "API-Key: ${CODEDX_ACCESS_TOKEN}" |jq ".projects[] | select(.name==\"\"${IO_POC_PROJECT_NAME}\"\").id")
           echo "CodeDx Project ID = $CODEDX_PROJECT_ID"
           rm -fr prescription.sh
