@@ -10,7 +10,7 @@ pipeline {
     GITHUB_USERNAME = "wangleo61"
     GITHUB_ACCESS_TOKEN = credentials('Github-AuthToken')
     CODEDX_ACCESS_TOKEN = credentials('CODEDX_API_KEY')
-    CODEDX_PROJECT_ID = 2
+    CODEDX_PROJECT_ID = 248
     IS_SAST_ENABLED = "false"
     IS_SCA_ENABLED = "false"
     IS_DAST_ENABLED = "false"
