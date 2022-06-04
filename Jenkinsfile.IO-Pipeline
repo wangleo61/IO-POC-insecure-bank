@@ -44,7 +44,7 @@ pipeline {
           --workflow.version="${WORKFLOW_CLIENT_VERSION}" \
           --scm.type="github" \
           --scm.owner="${GITHUB_USERNAME}" \
-          --scm.repo.name="${GITHUB_USERNAME}"/"${IO_POC_PROJECT_NAME}" \
+          --scm.repo.name="${IO_POC_PROJECT_NAME}" \
           --scm.branch.name="main" \
           --github.username="${GITHUB_USERNAME}" \
           --github.token="${GITHUB_ACCESS_TOKEN}" \
