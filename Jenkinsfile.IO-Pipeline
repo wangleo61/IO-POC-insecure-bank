@@ -155,7 +155,9 @@ pipeline {
           --IS_DAST_ENABLED="${IS_DAST_ENABLED}"
         '''
         echo "Running IO Workflow Engine with CodeDx"
+        echo prescription.sh
         sh '''
+          echo synopsys-io.json
           java -jar WorkflowClient.jar --workflowengine.url="${WORKFLOW_URL}" --io.manifest.path=synopsys-io.json
         '''
       }
