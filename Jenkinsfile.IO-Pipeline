@@ -143,7 +143,7 @@ pipeline {
           --workflow.url="${WORKFLOW_URL}" \
           --workflow.version="${WORKFLOW_CLIENT_VERSION}" \
           --polaris.project.name="${IO_POC_PROJECT_NAME}"_Leo \
-          --polaris.project.name="${IO_POC_PROJECT_NAME}" \
+          --polaris.branch.name="${IO_POC_BRANCH_NAME}" \
           --polaris.url="${POLARIS_SERVER_URL}" \
           --polaris.token="${POLARIS_ACCESS_TOKEN}" \
           --blackduck.project.name="${IO_POC_PROJECT_NAME}:${IO_POC_PROJECT_VERSION}" \
